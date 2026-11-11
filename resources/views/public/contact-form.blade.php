@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ $form->name }} @if (config('app.name')) - {{ config('app.name') }} @endif</title>
+
+    @include('filament-contact-form::partials.base-styles')
+    @livewireStyles
+
+    <style>
+        body.fcf-body { margin: 0; padding: 0; background: #f9fafb; min-height: 100vh; color: #111827; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        .fcf-page-wrapper { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2.5rem 1rem; }
+    </style>
+</head>
+<body class="fcf-body">
+    <div class="fcf-page-wrapper">
+        <livewire:filament-contact-form.public-contact-form :form="$form" />
+    </div>
+
+    @livewireScripts
+</body>
+</html>
